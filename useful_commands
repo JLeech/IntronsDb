@@ -1,0 +1,14 @@
+sed -n '2268009,2268309p' hs_ref_GRCh38.p2_chr1.gbk
+
+grep -n --context=100 'NT_187171' hs_ref_GRCh38.p2_chr1.gbk
+grep -n 'EMBP1' hs_ref_GRCh38.p2_chr1.gbk
+
+
+
+load "isoform.rb"
+load "sequence.rb"
+load "gene.rb"
+
+Isoform.delete_all
+Gene.delete_all
+Sequence.delete_all
