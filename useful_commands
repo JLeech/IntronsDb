@@ -8,7 +8,9 @@ grep -n 'EMBP1' hs_ref_GRCh38.p2_chr1.gbk
 load "isoform.rb"
 load "sequence.rb"
 load "gene.rb"
+load "exon.rb"
 
 Isoform.delete_all
 Gene.delete_all
 Sequence.delete_all
+Exon.delete_all

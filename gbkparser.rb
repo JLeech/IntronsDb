@@ -29,8 +29,8 @@ class Gbkparser
 	attr_accessor :uid_generator
 
 	def initialize(file_path = '/home/eve/Документы/best-introns-filler/subseq.gbk')
-		#@file_path = "/home/eve/Документы/bash_task/hs_ref_GRCh38.p2_chr1.gbk"
-		@file_path = file_path
+		@file_path = "/home/eve/Документы/bash_task/hs_ref_GRCh38.p2_chr1.gbk"
+		#@file_path = file_path
 		@current_block = []
 		@state = HEADER
 		
@@ -117,9 +117,9 @@ class Gbkparser
 		gene_for_cds = get_gene_for_cds
 		isoform_for_cds = get_isoform_for_cds
 		@current_cds_data = Isoform.parse(@current_block,current_gene_id)
-		
-
-
+		id = add_and_return_id(@current_cds_data)
+		@current_cds_data = Isoform.create_introns_and_exons(@current_cds_data)
+	
 	end
 
 	def first_gene?
